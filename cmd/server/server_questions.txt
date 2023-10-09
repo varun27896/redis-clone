@@ -1,0 +1,34 @@
+Questions I asked myself (using chatgpt) while writing the code for server.go
+
+Error Handling (err != nil)
+Purpose: Error handling in Go often uses the if err != nil pattern to check for and handle errors.
+Meaning: If err is not nil, it indicates an error has occurred during the execution of a function.
+Usage: It's a common practice to check for errors and handle them gracefully, such as by logging the error or returning an error response.
+
+Buffer Usage (buf)
+Purpose: Buffers, like buf, are used to efficiently read and process data from network connections or files.
+Usage: A buffer allows reading data in chunks, reducing overhead compared to reading byte by byte.
+Example: buf := make([]byte, 1024) creates a 1024-byte buffer for reading data.
+
+Naming Conventions (CamelCase)
+Go Naming: Go uses CamelCase for variable and function names, like portNumber or listener.
+Defer Keyword
+Purpose: The defer keyword is used to schedule a function call to be executed just before the surrounding function returns.
+
+Surrounding Function: The surrounding function is where the defer statement is placed, and the deferred function runs before the function exits.
+Code Explanation (Sample Program)
+A sample Go program listens on a network port for incoming connections.
+It uses defer to close the connection gracefully when finished.
+It reads data from the client, processes it (responding with +OK\r\n), and continues reading until the client disconnects.
+
+Buffer Overflow Handling
+The provided program lacks built-in buffer overflow handling.
+If incoming data exceeds the buffer size (1024 bytes), it may result in data truncation and potential issues.
+
+Real-World Servers
+Typical servers use buffers, but their design varies based on purpose, traffic, and requirements.
+Buffers help manage data efficiently, and server design includes factors like concurrency and buffer management.
+connection.Write([]byte("+OK\r\n"))
+Writes the +OK\r\n string as a response to the network connection.
++OK often indicates a successful response in some text-based protocols.
+\r\n represents a line break.
