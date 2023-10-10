@@ -5,10 +5,13 @@ import (
 	"io"
 	"net"
 	"os"
+
+	resp "github.com/yourusername/redis-clone/cmd"
 )
 
 func main() {
-
+	fmt.Println("calling resp")
+	resp.Resp()
 	portNumber := ":6379"
 
 	listener, err := net.Listen("tcp", portNumber)

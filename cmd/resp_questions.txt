@@ -1,0 +1,20 @@
+What are bytes?
+
+In the context of computer science and programming, "bytes" are a fundamental unit of 
+digital information storage and representation. A byte is a group of 8 binary digits (bits), 
+and it can represent a variety of data, such as characters, numbers, and more. It is also used 
+for memory allocation, character encoding, and measuring file sizes and data transfer rates.
+
+Why is b assigned the value 36 in b, _ := reader.ReadByte()?
+
+In this code, reader.ReadByte() reads a single byte from the input source and returns it as an unsigned 
+8-bit integer (uint8). The value 36 corresponds to the ASCII character '$', which is the decimal value of 
+the byte read from the source. So, b contains the ASCII value of '$', which is 36.
+
+What does _ mean in size, _ := reader.ReadByte()?
+
+In Go, when you assign a value to the underscore (_) identifier, it is used as a "blank identifier." 
+The blank identifier is used to ignore or discard a value returned by a function. In this code, _ is 
+used to ignore the second value returned by ReadByte(), which is the error value. It indicates that you 
+don't want to handle or check the error in your code.
+What does strconv.ParseInt(string(size), 10, 64) do?
